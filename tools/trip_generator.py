@@ -1,9 +1,12 @@
 import argparse
 import random
 import json
+import os
 import numpy as np
 
 class TripGenerator:
+    BASE_PATH = "../data/"
+    
     DURATION = ['bardzo krótki', 'krótki', 'średni', 'długi']
     ACCOMODATION_STANDARD = ['zadowalający', 'dobry', 'wysoki', 'luksusowy']
     PRICE_RANGE = (200, 1000)
@@ -71,6 +74,17 @@ class TripGenerator:
         
         # Multiply base price and round to the nearest hundred
         return np.round(base_price * accomodation_standard_multiplier * duration_multiplier, -2).item()
+    
+    def _create_json_database(self, trips):
+        with open(self.BASE_PATH + 'trips_database.json', 'w', encoding='utf-8') as f:
+            json.dump(trips, f, indent=4, ensure_ascii=False)
+            
+    def _create_prolog_database(self, trips):
+        with open(self.BASE_PATH + 'trips_database.pl', 'w', encoding='utf-8') as f:
+            f.write('% Facts representing trips available trips. \n')
+            for trip in trips:
+                f.write(f"trip('{trip['country']}', '{trip['duration']}', {trip['price']}, '{trip['accomodation_standard']}', '{trip['transportation']}', '{trip['type']}', '{trip['board_basis']}', '{trip['children_friendly']}', '{trip['pets_friendly']}', '{trip['tourist_density']}', {trip['distance_from_poland']}, {trip['souvenir_shops_per_sq_km']}).\n")
+    
 
 def main():
     parser = argparse.ArgumentParser(description='Generate trip data for travel agency.')
@@ -82,8 +96,12 @@ def main():
     generator = TripGenerator()
     trips_data = generator.generate_trips(num_trips)
 
-    with open('trips_data.json', 'w') as f:
-        json.dump(trips_data, f, indent=4)
+    if not os.path.exists(generator.BASE_PATH):
+        os.makedirs(generator.BASE_PATH)
+
+    generator._create_json_database(trips_data)
+    generator._create_prolog_database(trips_data)
+    
     print(f"{num_trips} trips data generated successfully!")
     
 main()
