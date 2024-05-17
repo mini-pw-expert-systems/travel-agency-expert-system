@@ -108,7 +108,9 @@ class TripGenerator:
         with open(self.BASE_PATH + filename, 'w', encoding='utf-8') as f:
             f.write('% Facts representing trips available trips. \n')
             for trip in trips:
-                f.write(f"trip({trip['Id']}, '{trip['chosen_country']}', '{trip['duration']}', '{trip['price']}', '{trip['accomodation_standard']}', '{trip['transportation']}', '{trip['type']}', '{trip['board_basis']}', '{trip['children_friendly']}', '{trip['pets_friendly']}', '{trip['tourist_density']}', '{trip['currency']}', '{trip['prepayment_needed']}').\n")
+                duration = f"'{trip['duration']}'" if fuzzy else f"{trip['duration']}"
+                price = f"'{trip['price']}'" if fuzzy else f"{trip['price']}"
+                f.write(f"trip({trip['Id']}, '{trip['chosen_country']}', {duration}, {price}, '{trip['accomodation_standard']}', '{trip['transportation']}', '{trip['type']}', '{trip['board_basis']}', '{trip['children_friendly']}', '{trip['pets_friendly']}', '{trip['tourist_density']}', '{trip['currency']}', '{trip['prepayment_needed']}').\n")
     
 
 def main():
