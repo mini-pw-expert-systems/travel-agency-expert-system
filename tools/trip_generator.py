@@ -7,46 +7,77 @@ import numpy as np
 class TripGenerator:
     BASE_PATH = "../data/"
     
-    DURATION = ['bardzo krótki', 'krótki', 'średni', 'długi']
+    DURATION_RANGE = (2,15)
     ACCOMODATION_STANDARD = ['zadowalający', 'dobry', 'wysoki', 'luksusowy']
-    PRICE_RANGE = (200, 1000)
+    PRICE_RANGE = (100, 400)
     TRANSPORTATION = ['samolot', 'prom', 'autobus', 'pociąg']
     BOARD_BASIS = ['we własnym zakresie', 'w cenie', 'all inclusive']
     CHILDREN_FRIENDLY = ['tak', 'nie']
     PETS_FRIENDLY = ['tak', 'nie']
+    PREPAYMENT_NEEDED = ['tak', 'nie']
     TOURIST_DENSITY = ['niski', 'umiarkowany', 'wysoki', 'bardzo wysoki']
-    SOUVERNIR_SHOPS_PER_SQ_KM_RANGE = (0, 50)
     
     COUNTRIES = {
-    'Francja': {'trip_types': ['góry', 'morze', 'miasto'], 'distance_range': (1000, 2000)},
-    'Włochy': {'trip_types': ['góry', 'morze', 'miasto'], 'distance_range': (900, 1800)},
-    'Niemcy': {'trip_types': ['góry', 'miasto'], 'distance_range': (500, 1000)},
-    'Hiszpania': {'trip_types': ['góry', 'morze', 'miasto'], 'distance_range': (2000, 3000)},
-    'Grecja': {'trip_types': ['góry', 'morze', 'miasto'], 'distance_range': (1500, 2500)},
-    'Portugalia': {'trip_types': ['góry', 'morze'], 'distance_range': (2500, 3500)},
-    'Holandia': {'trip_types': ['miasto'], 'distance_range': (800, 1200)},
-    'Szwajcaria': {'trip_types': ['góry', 'miasto'], 'distance_range': (800, 1200)},
-    'Austria': {'trip_types': ['góry', 'miasto'], 'distance_range': (700, 1100)},
-    'Belgia': {'trip_types': ['miasto'], 'distance_range': (800, 1200)}
+    'Francja': {'trip_types': ['góry', 'morze', 'miasto'], 'currency': 'euro'},
+    'Włochy': {'trip_types': ['góry', 'morze', 'miasto'], 'currency': 'euro'},
+    'Polska': {'trip_types': ['góry', 'morze'], 'currency': 'pln'},
+    'Hiszpania': {'trip_types': ['morze', 'miasto'], 'currency': 'euro'},
+    'Japonia': {'trip_types': ['góry', 'morze', 'miasto'], 'currency': 'yen'},
     }
+    
+    def _calculate_price(self, standard, duration):
+        base_price = random.randint(self.PRICE_RANGE[0], self.PRICE_RANGE[1])
+        accomodation_standard_multiplier = self.ACCOMODATION_STANDARD.index(standard) + 1
+        duration_multiplier = duration
+        
+        # Multiply base price and round to the nearest hundred
+        return np.round(base_price * accomodation_standard_multiplier * duration_multiplier, -2).item()
 
+    def map_price_to_fuzzy(self, price: int) -> str:
+        if price < 1500:
+            return "bardzo niska"
+        elif price < 3000:
+            return "niska"
+        elif price < 6000:
+            return "średnia"
+        elif price < 10000:
+            return "wysoka"
+        else:
+            return "bardzo wysoka"
+    
+    def map_duration_to_fuzzy(self, duration: int) -> str:
+        if duration < 3:
+            return "bardzo krótki"
+        elif duration < 6:
+            return "krótki"
+        elif duration < 9:
+            return "średni"
+        elif duration < 12:
+            return "długi"
+        else:
+            return "bardzo długi"
 
-    def generate_trip(self):
-        duration = random.choice(self.DURATION)
+    def generate_trip(self, fuzzy: bool, id: int):
+        chosen_country = random.choice(list(self.COUNTRIES.keys()))
+        duration = random.randint(self.DURATION_RANGE[0], self.DURATION_RANGE[1])
         standard = random.choice(self.ACCOMODATION_STANDARD)
         price = self._calculate_price(standard, duration)
-        country = random.choice(list(self.COUNTRIES.keys()))
-        trip_type = random.choice(self.COUNTRIES[country]['trip_types'])
+        trip_type = random.choice(self.COUNTRIES[chosen_country]['trip_types'])
         transportation = random.choice(self.TRANSPORTATION)
         board_basis = random.choice(self.BOARD_BASIS)
         children_friendly = random.choice(self.PETS_FRIENDLY)
         pets_friendly = random.choice(self.PETS_FRIENDLY)
         tourist_density = random.choice(self.TOURIST_DENSITY)
-        distance_from_poland = random.randint(self.COUNTRIES[country]['distance_range'][0], self.COUNTRIES[country]['distance_range'][1])
-        souvenir_shops_per_sq_km = random.randint(self.SOUVERNIR_SHOPS_PER_SQ_KM_RANGE[0], self.SOUVERNIR_SHOPS_PER_SQ_KM_RANGE[1])
+        currency = self.COUNTRIES[chosen_country]['currency']
+        prepayment_needed = random.choice(self.PREPAYMENT_NEEDED)
+        
+        if(fuzzy):
+            price = self.map_price_to_fuzzy(price)
+            duration = self.map_duration_to_fuzzy(duration)
 
         trip = {
-            'country': country,
+            'Id': id,
+            'chosen_country': chosen_country,
             'duration': duration,
             'price': price,
             'accomodation_standard': standard,
@@ -56,51 +87,49 @@ class TripGenerator:
             'children_friendly': children_friendly,
             'pets_friendly': pets_friendly,
             'tourist_density': tourist_density,
-            'distance_from_poland': distance_from_poland,
-            'souvenir_shops_per_sq_km': souvenir_shops_per_sq_km
+            'currency': currency,
+            'prepayment_needed': prepayment_needed
         }
         return trip
 
-    def generate_trips(self, num_trips):
+    def generate_trips(self, num_trips: int, fuzzy: bool):
         trips = []
-        for _ in range(num_trips):
-            trips.append(self.generate_trip())
+        for i in range(num_trips):
+            trips.append(self.generate_trip(fuzzy, i+1))
         return trips
     
-    def _calculate_price(self, standard, duration):
-        base_price = random.randint(self.PRICE_RANGE[0], self.PRICE_RANGE[1])
-        accomodation_standard_multiplier = self.ACCOMODATION_STANDARD.index(standard) + 1
-        duration_multiplier = self.DURATION.index(duration) + 1
-        
-        # Multiply base price and round to the nearest hundred
-        return np.round(base_price * accomodation_standard_multiplier * duration_multiplier, -2).item()
-    
-    def _create_json_database(self, trips):
-        with open(self.BASE_PATH + 'trips_database.json', 'w', encoding='utf-8') as f:
+    def _create_json_database(self, trips, fuzzy):
+        filename = 'trips_database_fuzzy.json' if fuzzy else 'trips_database.json'
+        with open(self.BASE_PATH + filename, 'w', encoding='utf-8') as f:
             json.dump(trips, f, indent=4, ensure_ascii=False)
             
-    def _create_prolog_database(self, trips):
-        with open(self.BASE_PATH + 'trips_database.pl', 'w', encoding='utf-8') as f:
+    def _create_prolog_database(self, trips, fuzzy):
+        filename = 'trips_database_fuzzy.pl' if fuzzy else 'trips_database.pl'
+        with open(self.BASE_PATH + filename, 'w', encoding='utf-8') as f:
             f.write('% Facts representing trips available trips. \n')
             for trip in trips:
-                f.write(f"trip('{trip['country']}', '{trip['duration']}', {trip['price']}, '{trip['accomodation_standard']}', '{trip['transportation']}', '{trip['type']}', '{trip['board_basis']}', '{trip['children_friendly']}', '{trip['pets_friendly']}', '{trip['tourist_density']}', {trip['distance_from_poland']}, {trip['souvenir_shops_per_sq_km']}).\n")
+                duration = f"'{trip['duration']}'" if fuzzy else f"{trip['duration']}"
+                price = f"'{trip['price']}'" if fuzzy else f"{trip['price']}"
+                f.write(f"trip({trip['Id']}, '{trip['chosen_country']}', {duration}, {price}, '{trip['accomodation_standard']}', '{trip['transportation']}', '{trip['type']}', '{trip['board_basis']}', '{trip['children_friendly']}', '{trip['pets_friendly']}', '{trip['tourist_density']}', '{trip['currency']}', '{trip['prepayment_needed']}').\n")
     
 
 def main():
     parser = argparse.ArgumentParser(description='Generate trip data for travel agency.')
-    parser.add_argument('-n', '--num-trips', type=int, default=20, help='Number of trips to generate (between 1 and 100)')
+    parser.add_argument('-f', '--fuzzy', action='store_true', help='Use fuzzy (string) representation in generated data.')
+    parser.add_argument('-n', '--num-trips', type=int, default=100, help='Number of decisions to generate (between 1 and 100)')
     args = parser.parse_args()
 
-    num_trips = max(min(args.num_trips, 100), 1)
+    num_trips = max(min(args.num_trips, 200), 1)
+    fuzzy = args.fuzzy
 
     generator = TripGenerator()
-    trips_data = generator.generate_trips(num_trips)
+    trips_data = generator.generate_trips(num_trips, fuzzy)
 
     if not os.path.exists(generator.BASE_PATH):
         os.makedirs(generator.BASE_PATH)
 
-    generator._create_json_database(trips_data)
-    generator._create_prolog_database(trips_data)
+    generator._create_json_database(trips_data, fuzzy)
+    generator._create_prolog_database(trips_data, fuzzy)
     
     print(f"{num_trips} trips data generated successfully!")
     
