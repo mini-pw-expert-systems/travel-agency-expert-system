@@ -57,7 +57,7 @@ class TripGenerator:
         else:
             return "bardzo długi"
 
-    def generate_trip(self, fuzzy: bool):
+    def generate_trip(self, fuzzy: bool, id: int):
         chosen_country = random.choice(list(self.COUNTRIES.keys()))
         duration = random.randint(self.DURATION_RANGE[0], self.DURATION_RANGE[1])
         standard = random.choice(self.ACCOMODATION_STANDARD)
@@ -76,6 +76,7 @@ class TripGenerator:
             duration = self.map_duration_to_fuzzy(duration)
 
         trip = {
+            'Id': id,
             'chosen_country': chosen_country,
             'duration': duration,
             'price': price,
@@ -93,8 +94,8 @@ class TripGenerator:
 
     def generate_trips(self, num_trips: int, fuzzy: bool):
         trips = []
-        for _ in range(num_trips):
-            trips.append(self.generate_trip(fuzzy))
+        for i in range(num_trips):
+            trips.append(self.generate_trip(fuzzy, i+1))
         return trips
     
     def _create_json_database(self, trips, fuzzy):
@@ -107,7 +108,7 @@ class TripGenerator:
         with open(self.BASE_PATH + filename, 'w', encoding='utf-8') as f:
             f.write('% Facts representing trips available trips. \n')
             for trip in trips:
-                f.write(f"trip('{trip['chosen_country']}', '{trip['duration']}', '{trip['price']}', '{trip['accomodation_standard']}', '{trip['transportation']}', '{trip['type']}', '{trip['board_basis']}', '{trip['children_friendly']}', '{trip['pets_friendly']}', '{trip['tourist_density']}', '{trip['currency']}', '{trip['prepayment_needed']}').\n")
+                f.write(f"trip({trip['Id']}, '{trip['chosen_country']}', '{trip['duration']}', '{trip['price']}', '{trip['accomodation_standard']}', '{trip['transportation']}', '{trip['type']}', '{trip['board_basis']}', '{trip['children_friendly']}', '{trip['pets_friendly']}', '{trip['tourist_density']}', '{trip['currency']}', '{trip['prepayment_needed']}').\n")
     
 
 def main():
