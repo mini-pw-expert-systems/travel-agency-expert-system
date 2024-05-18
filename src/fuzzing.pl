@@ -2,11 +2,11 @@
 
 % trip(Country, durationFuzzy, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment).
 
-priceFuzzy('niska', PriceNum) :- PriceNum < 1500, !.
-priceFuzzy('bardzo niska', PriceNum) :- PriceNum < 3000, !.
-priceFuzzy('średnia', PriceNum) :- PriceNum < 6000, !.
-priceFuzzy('wysoka', PriceNum) :- PriceNum < 10000, !.
-priceFuzzy('bardzo wysoka', _PriceNum) :- !.
+priceFuzzy('very_low', PriceNum) :- PriceNum < 1500, !.
+priceFuzzy('low', PriceNum) :- PriceNum < 3000, !.
+priceFuzzy('medium', PriceNum) :- PriceNum < 6000, !.
+priceFuzzy('high', PriceNum) :- PriceNum < 10000, !.
+priceFuzzy('very_high', _PriceNum) :- !.
 
 % Zakomentowane do rozwazenia:
 % priceFuzzy(veryLow, PriceNum, Days) :-
@@ -27,9 +27,9 @@ priceFuzzy('bardzo wysoka', _PriceNum) :- !.
 %     PricePerDay < 2000, !.
 % priceFuzzy(veryHigh, _PriceNum, _Days) :- !.
 
-durationFuzzy('krótki', Days) :- Days < 7, !.
-durationFuzzy('średni', Days) :- Days < 14, !.
-durationFuzzy('długi', _Days) :- !.
+durationFuzzy('short', Days) :- Days < 7, !.
+durationFuzzy('medium', Days) :- Days < 14, !.
+durationFuzzy('long', _Days) :- !.
 
 % trip(Country, durationFuzzy, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment).
 tripFuzz(Id, Country, DurationFuzz, PriceFuzz, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment):- 
