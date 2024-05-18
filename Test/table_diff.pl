@@ -19,7 +19,7 @@ get_attr_value(ID, 3, A3) :- entry(ID, _, _, A3, _, _).
 get_attr_value(ID, 4, A4) :- entry(ID, _, _, _, A4, _).
 
 % Rule to check if an entry satisfies additional conditions.
-satisfies_conditions(ID, []).
+satisfies_conditions(_, []).
 satisfies_conditions(ID, [(AttrIndex, Value)|Rest]) :-
     get_attr_value(ID, AttrIndex, AttrValue),
     AttrValue = Value,

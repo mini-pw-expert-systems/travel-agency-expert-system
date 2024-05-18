@@ -7,6 +7,8 @@ while attributes is not empty:
     value = readline()
     conditions[max_attribute] = value
 
+    if for collisions and inconsistencies
+
     matching = find_entries(conditions)
     if len(matching) == 1:
         return matching[0]
