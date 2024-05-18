@@ -1,4 +1,6 @@
 % Facts representing trips available trips. 
+:- dynamic trip/13.
+
 trip(1, 'Polska', 7, 2300, 'zadowalający', 'pociąg', 'góry', 'all inclusive', 'nie', 'nie', 'umiarkowany', 'pln', 'nie').
 trip(2, 'Polska', 15, 1700, 'zadowalający', 'autobus', 'morze', 'w cenie', 'nie', 'nie', 'umiarkowany', 'pln', 'tak').
 trip(3, 'Polska', 13, 4800, 'zadowalający', 'autobus', 'góry', 'all inclusive', 'nie', 'tak', 'umiarkowany', 'pln', 'nie').
