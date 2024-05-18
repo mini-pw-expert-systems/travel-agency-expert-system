@@ -1,6 +1,10 @@
 # travel-agency-expert-system
 This repository contains code from Expert Systems course held at Warsaw University of Technology
 
+## User interface
+To run the system call: `swipl -s src/user_ui.pl` from the main directory.
+When the system is running call: `start.` to start the trip selection process.
+
 ## Trip generator
 This script generates trip data for a travel agency. User can specify the number of trips and whether to use fuzzy representation in the generated data.
 

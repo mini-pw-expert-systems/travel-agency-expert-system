@@ -1,101 +1,101 @@
 % Facts representing trips available trips. 
-trip(1, 'Polska', 'bardzo krótki', 'bardzo niska', 'zadowalający', 'prom', 'góry', 'we własnym zakresie', 'tak', 'nie', 'umiarkowany', 'pln', 'tak').
-trip(2, 'Polska', 'bardzo krótki', 'niska', 'luksusowy', 'pociąg', 'góry', 'w cenie', 'nie', 'nie', 'umiarkowany', 'pln', 'nie').
-trip(3, 'Włochy', 'bardzo długi', 'bardzo wysoka', 'dobry', 'samolot', 'miasto', 'w cenie', 'tak', 'nie', 'wysoki', 'euro', 'nie').
-trip(4, 'Włochy', 'długi', 'średnia', 'zadowalający', 'prom', 'góry', 'we własnym zakresie', 'tak', 'nie', 'umiarkowany', 'euro', 'tak').
-trip(5, 'Włochy', 'bardzo długi', 'średnia', 'zadowalający', 'autobus', 'góry', 'w cenie', 'nie', 'nie', 'wysoki', 'euro', 'tak').
-trip(6, 'Hiszpania', 'krótki', 'niska', 'zadowalający', 'pociąg', 'morze', 'w cenie', 'tak', 'nie', 'umiarkowany', 'euro', 'nie').
-trip(7, 'Hiszpania', 'krótki', 'bardzo niska', 'luksusowy', 'prom', 'morze', 'all inclusive', 'tak', 'nie', 'niski', 'euro', 'tak').
-trip(8, 'Polska', 'bardzo długi', 'średnia', 'dobry', 'prom', 'morze', 'w cenie', 'tak', 'nie', 'wysoki', 'pln', 'nie').
-trip(9, 'Japonia', 'bardzo długi', 'bardzo wysoka', 'wysoki', 'samolot', 'góry', 'all inclusive', 'tak', 'tak', 'umiarkowany', 'yen', 'nie').
-trip(10, 'Japonia', 'bardzo długi', 'wysoka', 'luksusowy', 'autobus', 'miasto', 'all inclusive', 'tak', 'nie', 'umiarkowany', 'yen', 'tak').
-trip(11, 'Włochy', 'bardzo długi', 'bardzo wysoka', 'luksusowy', 'pociąg', 'miasto', 'all inclusive', 'tak', 'nie', 'wysoki', 'euro', 'nie').
-trip(12, 'Francja', 'krótki', 'bardzo niska', 'zadowalający', 'pociąg', 'morze', 'w cenie', 'tak', 'nie', 'umiarkowany', 'euro', 'nie').
-trip(13, 'Francja', 'średni', 'niska', 'zadowalający', 'prom', 'góry', 'we własnym zakresie', 'nie', 'tak', 'umiarkowany', 'euro', 'nie').
-trip(14, 'Polska', 'długi', 'niska', 'dobry', 'samolot', 'morze', 'w cenie', 'nie', 'tak', 'bardzo wysoki', 'pln', 'tak').
-trip(15, 'Włochy', 'bardzo długi', 'bardzo wysoka', 'luksusowy', 'prom', 'góry', 'we własnym zakresie', 'tak', 'nie', 'bardzo wysoki', 'euro', 'nie').
-trip(16, 'Włochy', 'bardzo długi', 'wysoka', 'wysoki', 'autobus', 'morze', 'we własnym zakresie', 'tak', 'tak', 'umiarkowany', 'euro', 'tak').
-trip(17, 'Hiszpania', 'bardzo długi', 'wysoka', 'dobry', 'autobus', 'morze', 'all inclusive', 'tak', 'nie', 'umiarkowany', 'euro', 'tak').
-trip(18, 'Hiszpania', 'bardzo krótki', 'niska', 'wysoki', 'prom', 'miasto', 'w cenie', 'nie', 'nie', 'wysoki', 'euro', 'nie').
-trip(19, 'Hiszpania', 'krótki', 'niska', 'luksusowy', 'prom', 'miasto', 'w cenie', 'nie', 'tak', 'niski', 'euro', 'nie').
-trip(20, 'Polska', 'krótki', 'bardzo niska', 'zadowalający', 'samolot', 'morze', 'all inclusive', 'nie', 'tak', 'bardzo wysoki', 'pln', 'tak').
-trip(21, 'Polska', 'średni', 'średnia', 'dobry', 'pociąg', 'morze', 'all inclusive', 'tak', 'nie', 'bardzo wysoki', 'pln', 'tak').
-trip(22, 'Hiszpania', 'krótki', 'średnia', 'dobry', 'autobus', 'morze', 'we własnym zakresie', 'tak', 'nie', 'niski', 'euro', 'nie').
-trip(23, 'Hiszpania', 'krótki', 'niska', 'luksusowy', 'samolot', 'miasto', 'all inclusive', 'nie', 'tak', 'umiarkowany', 'euro', 'tak').
-trip(24, 'Polska', 'bardzo długi', 'bardzo wysoka', 'wysoki', 'autobus', 'morze', 'all inclusive', 'nie', 'tak', 'umiarkowany', 'pln', 'tak').
-trip(25, 'Hiszpania', 'średni', 'wysoka', 'wysoki', 'autobus', 'morze', 'w cenie', 'nie', 'nie', 'umiarkowany', 'euro', 'tak').
-trip(26, 'Francja', 'bardzo długi', 'średnia', 'dobry', 'autobus', 'miasto', 'all inclusive', 'nie', 'tak', 'niski', 'euro', 'tak').
-trip(27, 'Hiszpania', 'bardzo długi', 'wysoka', 'wysoki', 'autobus', 'miasto', 'all inclusive', 'nie', 'nie', 'bardzo wysoki', 'euro', 'tak').
-trip(28, 'Włochy', 'bardzo długi', 'bardzo wysoka', 'luksusowy', 'pociąg', 'morze', 'w cenie', 'tak', 'nie', 'bardzo wysoki', 'euro', 'tak').
-trip(29, 'Francja', 'bardzo długi', 'wysoka', 'wysoki', 'prom', 'góry', 'all inclusive', 'tak', 'nie', 'niski', 'euro', 'nie').
-trip(30, 'Francja', 'średni', 'wysoka', 'wysoki', 'pociąg', 'góry', 'all inclusive', 'nie', 'nie', 'wysoki', 'euro', 'tak').
-trip(31, 'Japonia', 'średni', 'niska', 'dobry', 'autobus', 'morze', 'all inclusive', 'nie', 'tak', 'umiarkowany', 'yen', 'tak').
-trip(32, 'Włochy', 'krótki', 'niska', 'dobry', 'pociąg', 'góry', 'w cenie', 'nie', 'nie', 'wysoki', 'euro', 'nie').
-trip(33, 'Hiszpania', 'bardzo długi', 'wysoka', 'dobry', 'pociąg', 'morze', 'w cenie', 'nie', 'tak', 'wysoki', 'euro', 'nie').
-trip(34, 'Włochy', 'średni', 'niska', 'dobry', 'autobus', 'góry', 'we własnym zakresie', 'tak', 'nie', 'bardzo wysoki', 'euro', 'tak').
-trip(35, 'Japonia', 'średni', 'średnia', 'dobry', 'autobus', 'miasto', 'we własnym zakresie', 'tak', 'tak', 'niski', 'yen', 'nie').
-trip(36, 'Włochy', 'krótki', 'średnia', 'luksusowy', 'pociąg', 'miasto', 'all inclusive', 'tak', 'tak', 'wysoki', 'euro', 'tak').
-trip(37, 'Polska', 'bardzo krótki', 'bardzo niska', 'wysoki', 'samolot', 'morze', 'w cenie', 'tak', 'tak', 'niski', 'pln', 'tak').
-trip(38, 'Polska', 'krótki', 'niska', 'wysoki', 'prom', 'góry', 'w cenie', 'tak', 'tak', 'umiarkowany', 'pln', 'tak').
-trip(39, 'Hiszpania', 'krótki', 'średnia', 'wysoki', 'pociąg', 'miasto', 'w cenie', 'tak', 'nie', 'umiarkowany', 'euro', 'tak').
-trip(40, 'Francja', 'długi', 'średnia', 'dobry', 'prom', 'morze', 'w cenie', 'tak', 'nie', 'wysoki', 'euro', 'tak').
-trip(41, 'Hiszpania', 'bardzo długi', 'średnia', 'zadowalający', 'prom', 'miasto', 'w cenie', 'tak', 'nie', 'umiarkowany', 'euro', 'tak').
-trip(42, 'Włochy', 'bardzo długi', 'bardzo wysoka', 'luksusowy', 'prom', 'góry', 'w cenie', 'nie', 'tak', 'wysoki', 'euro', 'nie').
-trip(43, 'Francja', 'bardzo długi', 'średnia', 'dobry', 'samolot', 'miasto', 'all inclusive', 'tak', 'tak', 'niski', 'euro', 'nie').
-trip(44, 'Polska', 'bardzo długi', 'bardzo niska', 'zadowalający', 'prom', 'morze', 'all inclusive', 'tak', 'nie', 'niski', 'pln', 'tak').
-trip(45, 'Hiszpania', 'bardzo długi', 'bardzo wysoka', 'wysoki', 'pociąg', 'morze', 'we własnym zakresie', 'nie', 'nie', 'niski', 'euro', 'tak').
-trip(46, 'Włochy', 'średni', 'niska', 'zadowalający', 'autobus', 'miasto', 'w cenie', 'nie', 'nie', 'wysoki', 'euro', 'tak').
-trip(47, 'Hiszpania', 'bardzo długi', 'wysoka', 'luksusowy', 'samolot', 'morze', 'w cenie', 'tak', 'nie', 'umiarkowany', 'euro', 'tak').
-trip(48, 'Polska', 'średni', 'bardzo niska', 'zadowalający', 'autobus', 'góry', 'w cenie', 'nie', 'nie', 'niski', 'pln', 'nie').
-trip(49, 'Hiszpania', 'bardzo długi', 'wysoka', 'dobry', 'autobus', 'morze', 'all inclusive', 'tak', 'nie', 'wysoki', 'euro', 'tak').
-trip(50, 'Japonia', 'bardzo długi', 'wysoka', 'dobry', 'autobus', 'miasto', 'we własnym zakresie', 'tak', 'nie', 'niski', 'yen', 'tak').
-trip(51, 'Polska', 'średni', 'niska', 'zadowalający', 'prom', 'morze', 'w cenie', 'tak', 'tak', 'bardzo wysoki', 'pln', 'tak').
-trip(52, 'Hiszpania', 'średni', 'średnia', 'wysoki', 'autobus', 'miasto', 'w cenie', 'nie', 'nie', 'wysoki', 'euro', 'nie').
-trip(53, 'Japonia', 'średni', 'niska', 'dobry', 'prom', 'morze', 'we własnym zakresie', 'nie', 'tak', 'umiarkowany', 'yen', 'nie').
-trip(54, 'Japonia', 'bardzo długi', 'bardzo wysoka', 'wysoki', 'samolot', 'góry', 'all inclusive', 'tak', 'tak', 'umiarkowany', 'yen', 'nie').
-trip(55, 'Polska', 'krótki', 'bardzo niska', 'zadowalający', 'autobus', 'góry', 'all inclusive', 'nie', 'tak', 'wysoki', 'pln', 'tak').
-trip(56, 'Hiszpania', 'średni', 'średnia', 'dobry', 'autobus', 'morze', 'all inclusive', 'nie', 'nie', 'umiarkowany', 'euro', 'tak').
-trip(57, 'Francja', 'bardzo długi', 'wysoka', 'wysoki', 'pociąg', 'miasto', 'all inclusive', 'tak', 'nie', 'wysoki', 'euro', 'nie').
-trip(58, 'Japonia', 'bardzo długi', 'wysoka', 'wysoki', 'autobus', 'góry', 'all inclusive', 'tak', 'nie', 'umiarkowany', 'yen', 'tak').
-trip(59, 'Japonia', 'krótki', 'bardzo niska', 'dobry', 'autobus', 'miasto', 'we własnym zakresie', 'nie', 'nie', 'niski', 'yen', 'nie').
-trip(60, 'Włochy', 'średni', 'wysoka', 'luksusowy', 'autobus', 'góry', 'we własnym zakresie', 'tak', 'tak', 'umiarkowany', 'euro', 'nie').
-trip(61, 'Japonia', 'długi', 'wysoka', 'dobry', 'prom', 'góry', 'all inclusive', 'nie', 'tak', 'umiarkowany', 'yen', 'nie').
-trip(62, 'Japonia', 'bardzo krótki', 'bardzo niska', 'wysoki', 'prom', 'góry', 'we własnym zakresie', 'nie', 'nie', 'wysoki', 'yen', 'tak').
-trip(63, 'Francja', 'długi', 'bardzo niska', 'zadowalający', 'pociąg', 'miasto', 'all inclusive', 'tak', 'tak', 'umiarkowany', 'euro', 'tak').
-trip(64, 'Polska', 'bardzo długi', 'średnia', 'wysoki', 'autobus', 'morze', 'w cenie', 'nie', 'nie', 'umiarkowany', 'pln', 'nie').
-trip(65, 'Japonia', 'średni', 'wysoka', 'wysoki', 'prom', 'miasto', 'we własnym zakresie', 'tak', 'nie', 'umiarkowany', 'yen', 'nie').
-trip(66, 'Włochy', 'bardzo długi', 'średnia', 'zadowalający', 'samolot', 'miasto', 'all inclusive', 'tak', 'tak', 'niski', 'euro', 'tak').
-trip(67, 'Polska', 'bardzo długi', 'niska', 'zadowalający', 'autobus', 'góry', 'all inclusive', 'nie', 'nie', 'wysoki', 'pln', 'tak').
-trip(68, 'Francja', 'bardzo krótki', 'bardzo niska', 'zadowalający', 'autobus', 'góry', 'we własnym zakresie', 'nie', 'nie', 'umiarkowany', 'euro', 'nie').
-trip(69, 'Japonia', 'długi', 'niska', 'zadowalający', 'prom', 'miasto', 'w cenie', 'nie', 'nie', 'umiarkowany', 'yen', 'nie').
-trip(70, 'Japonia', 'bardzo długi', 'bardzo wysoka', 'luksusowy', 'prom', 'góry', 'all inclusive', 'tak', 'tak', 'niski', 'yen', 'tak').
-trip(71, 'Hiszpania', 'średni', 'średnia', 'dobry', 'autobus', 'morze', 'all inclusive', 'tak', 'tak', 'umiarkowany', 'euro', 'tak').
-trip(72, 'Francja', 'krótki', 'średnia', 'luksusowy', 'prom', 'miasto', 'w cenie', 'tak', 'tak', 'wysoki', 'euro', 'nie').
-trip(73, 'Polska', 'krótki', 'bardzo niska', 'dobry', 'samolot', 'morze', 'all inclusive', 'tak', 'nie', 'niski', 'pln', 'tak').
-trip(74, 'Japonia', 'średni', 'średnia', 'luksusowy', 'prom', 'morze', 'all inclusive', 'nie', 'tak', 'umiarkowany', 'yen', 'nie').
-trip(75, 'Francja', 'długi', 'średnia', 'dobry', 'autobus', 'morze', 'all inclusive', 'nie', 'nie', 'bardzo wysoki', 'euro', 'tak').
-trip(76, 'Włochy', 'długi', 'wysoka', 'wysoki', 'autobus', 'góry', 'all inclusive', 'tak', 'tak', 'umiarkowany', 'euro', 'tak').
-trip(77, 'Francja', 'bardzo krótki', 'bardzo niska', 'zadowalający', 'autobus', 'miasto', 'w cenie', 'tak', 'tak', 'wysoki', 'euro', 'tak').
-trip(78, 'Francja', 'krótki', 'średnia', 'wysoki', 'samolot', 'morze', 'we własnym zakresie', 'nie', 'nie', 'umiarkowany', 'euro', 'tak').
-trip(79, 'Polska', 'długi', 'bardzo wysoka', 'luksusowy', 'pociąg', 'góry', 'all inclusive', 'nie', 'nie', 'bardzo wysoki', 'pln', 'tak').
-trip(80, 'Francja', 'średni', 'niska', 'dobry', 'samolot', 'morze', 'w cenie', 'nie', 'tak', 'bardzo wysoki', 'euro', 'tak').
-trip(81, 'Japonia', 'bardzo długi', 'wysoka', 'luksusowy', 'pociąg', 'miasto', 'all inclusive', 'nie', 'tak', 'wysoki', 'yen', 'tak').
-trip(82, 'Polska', 'długi', 'wysoka', 'dobry', 'autobus', 'morze', 'we własnym zakresie', 'tak', 'nie', 'umiarkowany', 'pln', 'nie').
-trip(83, 'Japonia', 'bardzo długi', 'średnia', 'zadowalający', 'samolot', 'góry', 'all inclusive', 'nie', 'nie', 'wysoki', 'yen', 'nie').
-trip(84, 'Włochy', 'bardzo długi', 'niska', 'zadowalający', 'prom', 'miasto', 'all inclusive', 'nie', 'tak', 'niski', 'euro', 'nie').
-trip(85, 'Japonia', 'bardzo krótki', 'bardzo niska', 'wysoki', 'autobus', 'morze', 'all inclusive', 'nie', 'tak', 'bardzo wysoki', 'yen', 'tak').
-trip(86, 'Hiszpania', 'średni', 'bardzo wysoka', 'luksusowy', 'pociąg', 'miasto', 'w cenie', 'nie', 'tak', 'niski', 'euro', 'nie').
-trip(87, 'Francja', 'bardzo długi', 'wysoka', 'wysoki', 'pociąg', 'góry', 'w cenie', 'nie', 'nie', 'wysoki', 'euro', 'nie').
-trip(88, 'Japonia', 'długi', 'bardzo wysoka', 'wysoki', 'pociąg', 'morze', 'w cenie', 'tak', 'tak', 'bardzo wysoki', 'yen', 'nie').
-trip(89, 'Hiszpania', 'długi', 'wysoka', 'luksusowy', 'pociąg', 'morze', 'w cenie', 'tak', 'nie', 'wysoki', 'euro', 'nie').
-trip(90, 'Hiszpania', 'bardzo długi', 'średnia', 'zadowalający', 'pociąg', 'morze', 'all inclusive', 'nie', 'tak', 'umiarkowany', 'euro', 'nie').
-trip(91, 'Japonia', 'średni', 'niska', 'zadowalający', 'samolot', 'morze', 'w cenie', 'tak', 'tak', 'bardzo wysoki', 'yen', 'tak').
-trip(92, 'Hiszpania', 'krótki', 'niska', 'dobry', 'prom', 'morze', 'we własnym zakresie', 'tak', 'nie', 'umiarkowany', 'euro', 'tak').
-trip(93, 'Polska', 'średni', 'średnia', 'dobry', 'pociąg', 'morze', 'we własnym zakresie', 'nie', 'nie', 'umiarkowany', 'pln', 'tak').
-trip(94, 'Polska', 'średni', 'wysoka', 'wysoki', 'pociąg', 'morze', 'we własnym zakresie', 'nie', 'tak', 'bardzo wysoki', 'pln', 'nie').
-trip(95, 'Włochy', 'bardzo długi', 'wysoka', 'dobry', 'autobus', 'miasto', 'w cenie', 'tak', 'tak', 'wysoki', 'euro', 'tak').
-trip(96, 'Hiszpania', 'średni', 'średnia', 'wysoki', 'autobus', 'miasto', 'we własnym zakresie', 'tak', 'tak', 'bardzo wysoki', 'euro', 'tak').
-trip(97, 'Hiszpania', 'krótki', 'bardzo niska', 'dobry', 'samolot', 'morze', 'we własnym zakresie', 'nie', 'tak', 'bardzo wysoki', 'euro', 'tak').
-trip(98, 'Włochy', 'bardzo długi', 'wysoka', 'dobry', 'samolot', 'miasto', 'all inclusive', 'tak', 'tak', 'umiarkowany', 'euro', 'nie').
-trip(99, 'Francja', 'średni', 'bardzo wysoka', 'luksusowy', 'autobus', 'morze', 'w cenie', 'tak', 'nie', 'umiarkowany', 'euro', 'tak').
-trip(100, 'Włochy', 'długi', 'niska', 'zadowalający', 'prom', 'miasto', 'we własnym zakresie', 'nie', 'tak', 'wysoki', 'euro', 'tak').
+trip(1, 'Spain', 'short', 'low', 'high', 'plane', 'city', 'self_catering', 'yes', 'no', 'high', 'euro', 'no').
+trip(2, 'Italy', 'short', 'low', 'good', 'bus', 'mountains', 'self_catering', 'yes', 'no', 'moderate', 'euro', 'yes').
+trip(3, 'Japan', 'long', 'high', 'high', 'plane', 'city', 'all_inclusive', 'yes', 'no', 'very_high', 'yen', 'no').
+trip(4, 'Italy', 'medium', 'medium', 'luxurious', 'train', 'mountains', 'all_inclusive', 'yes', 'no', 'very_high', 'euro', 'no').
+trip(5, 'Spain', 'medium', 'low', 'good', 'bus', 'sea', 'all_inclusive', 'yes', 'yes', 'moderate', 'euro', 'no').
+trip(6, 'Spain', 'long', 'high', 'luxurious', 'ferry', 'sea', 'included', 'yes', 'no', 'moderate', 'euro', 'yes').
+trip(7, 'Japan', 'medium', 'medium', 'luxurious', 'bus', 'city', 'self_catering', 'yes', 'no', 'low', 'yen', 'yes').
+trip(8, 'Italy', 'medium', 'very_high', 'luxurious', 'ferry', 'mountains', 'all_inclusive', 'yes', 'no', 'moderate', 'euro', 'no').
+trip(9, 'France', 'long', 'very_high', 'luxurious', 'ferry', 'mountains', 'self_catering', 'yes', 'yes', 'moderate', 'euro', 'yes').
+trip(10, 'Poland', 'very_short', 'very_low', 'high', 'train', 'mountains', 'all_inclusive', 'yes', 'yes', 'very_high', 'pln', 'yes').
+trip(11, 'France', 'short', 'medium', 'luxurious', 'plane', 'sea', 'included', 'yes', 'no', 'high', 'euro', 'no').
+trip(12, 'Spain', 'long', 'low', 'satisfactory', 'ferry', 'sea', 'all_inclusive', 'yes', 'yes', 'high', 'euro', 'no').
+trip(13, 'Spain', 'very_long', 'medium', 'high', 'ferry', 'city', 'self_catering', 'no', 'no', 'high', 'euro', 'yes').
+trip(14, 'Japan', 'very_long', 'low', 'satisfactory', 'bus', 'city', 'all_inclusive', 'no', 'no', 'moderate', 'yen', 'yes').
+trip(15, 'Poland', 'short', 'low', 'satisfactory', 'train', 'sea', 'all_inclusive', 'yes', 'no', 'moderate', 'pln', 'no').
+trip(16, 'Spain', 'long', 'medium', 'high', 'plane', 'sea', 'self_catering', 'yes', 'yes', 'very_high', 'euro', 'no').
+trip(17, 'Japan', 'short', 'medium', 'luxurious', 'ferry', 'mountains', 'self_catering', 'no', 'yes', 'high', 'yen', 'no').
+trip(18, 'Poland', 'very_long', 'low', 'satisfactory', 'plane', 'sea', 'all_inclusive', 'yes', 'yes', 'very_high', 'pln', 'no').
+trip(19, 'Japan', 'short', 'low', 'good', 'bus', 'sea', 'included', 'no', 'no', 'low', 'yen', 'yes').
+trip(20, 'Spain', 'medium', 'low', 'satisfactory', 'train', 'city', 'all_inclusive', 'no', 'yes', 'high', 'euro', 'yes').
+trip(21, 'Italy', 'very_long', 'very_high', 'luxurious', 'train', 'sea', 'self_catering', 'yes', 'no', 'very_high', 'euro', 'yes').
+trip(22, 'Italy', 'medium', 'medium', 'good', 'train', 'city', 'self_catering', 'yes', 'yes', 'low', 'euro', 'yes').
+trip(23, 'France', 'long', 'medium', 'satisfactory', 'train', 'mountains', 'self_catering', 'yes', 'no', 'low', 'euro', 'yes').
+trip(24, 'Italy', 'short', 'very_low', 'satisfactory', 'bus', 'mountains', 'included', 'no', 'yes', 'very_high', 'euro', 'no').
+trip(25, 'Spain', 'very_long', 'very_high', 'high', 'train', 'sea', 'self_catering', 'yes', 'yes', 'high', 'euro', 'yes').
+trip(26, 'Japan', 'very_short', 'very_low', 'good', 'bus', 'city', 'included', 'no', 'yes', 'moderate', 'yen', 'no').
+trip(27, 'Poland', 'medium', 'low', 'satisfactory', 'train', 'sea', 'included', 'no', 'yes', 'low', 'pln', 'yes').
+trip(28, 'France', 'long', 'very_high', 'high', 'plane', 'sea', 'all_inclusive', 'no', 'no', 'high', 'euro', 'no').
+trip(29, 'France', 'short', 'low', 'luxurious', 'ferry', 'city', 'self_catering', 'yes', 'yes', 'moderate', 'euro', 'yes').
+trip(30, 'Spain', 'very_long', 'medium', 'satisfactory', 'bus', 'sea', 'all_inclusive', 'no', 'yes', 'very_high', 'euro', 'yes').
+trip(31, 'Spain', 'very_long', 'low', 'satisfactory', 'ferry', 'city', 'all_inclusive', 'no', 'no', 'very_high', 'euro', 'no').
+trip(32, 'Italy', 'long', 'medium', 'satisfactory', 'bus', 'mountains', 'included', 'yes', 'no', 'moderate', 'euro', 'yes').
+trip(33, 'Japan', 'short', 'medium', 'high', 'plane', 'mountains', 'included', 'yes', 'yes', 'very_high', 'yen', 'no').
+trip(34, 'Poland', 'medium', 'very_high', 'luxurious', 'plane', 'mountains', 'included', 'no', 'no', 'low', 'pln', 'no').
+trip(35, 'Spain', 'very_long', 'high', 'good', 'plane', 'sea', 'included', 'yes', 'no', 'moderate', 'euro', 'yes').
+trip(36, 'Poland', 'short', 'very_low', 'good', 'train', 'sea', 'self_catering', 'yes', 'no', 'very_high', 'pln', 'no').
+trip(37, 'Spain', 'medium', 'medium', 'good', 'plane', 'city', 'included', 'no', 'yes', 'moderate', 'euro', 'yes').
+trip(38, 'Japan', 'medium', 'high', 'high', 'plane', 'sea', 'included', 'yes', 'yes', 'high', 'yen', 'no').
+trip(39, 'Italy', 'very_short', 'very_low', 'satisfactory', 'bus', 'city', 'self_catering', 'no', 'no', 'moderate', 'euro', 'yes').
+trip(40, 'Poland', 'very_short', 'low', 'high', 'bus', 'mountains', 'included', 'no', 'no', 'very_high', 'pln', 'yes').
+trip(41, 'Japan', 'short', 'very_low', 'satisfactory', 'plane', 'sea', 'self_catering', 'yes', 'no', 'low', 'yen', 'yes').
+trip(42, 'Italy', 'long', 'very_high', 'luxurious', 'plane', 'city', 'included', 'no', 'yes', 'very_high', 'euro', 'yes').
+trip(43, 'Spain', 'long', 'medium', 'satisfactory', 'ferry', 'city', 'all_inclusive', 'yes', 'yes', 'low', 'euro', 'yes').
+trip(44, 'France', 'very_long', 'very_high', 'high', 'bus', 'city', 'included', 'no', 'yes', 'low', 'euro', 'yes').
+trip(45, 'Italy', 'long', 'medium', 'good', 'ferry', 'city', 'self_catering', 'yes', 'no', 'high', 'euro', 'no').
+trip(46, 'Poland', 'medium', 'medium', 'good', 'bus', 'mountains', 'included', 'yes', 'no', 'high', 'pln', 'no').
+trip(47, 'Japan', 'long', 'very_high', 'high', 'train', 'sea', 'included', 'yes', 'yes', 'low', 'yen', 'no').
+trip(48, 'France', 'long', 'low', 'satisfactory', 'ferry', 'city', 'all_inclusive', 'no', 'no', 'low', 'euro', 'yes').
+trip(49, 'France', 'very_long', 'very_high', 'high', 'train', 'sea', 'self_catering', 'no', 'yes', 'moderate', 'euro', 'no').
+trip(50, 'France', 'medium', 'medium', 'high', 'train', 'mountains', 'self_catering', 'yes', 'no', 'low', 'euro', 'no').
+trip(51, 'Japan', 'long', 'high', 'luxurious', 'bus', 'mountains', 'included', 'no', 'no', 'high', 'yen', 'no').
+trip(52, 'Spain', 'very_long', 'medium', 'good', 'train', 'sea', 'self_catering', 'yes', 'yes', 'low', 'euro', 'yes').
+trip(53, 'Poland', 'short', 'low', 'high', 'train', 'mountains', 'included', 'no', 'yes', 'low', 'pln', 'yes').
+trip(54, 'Japan', 'long', 'very_high', 'luxurious', 'plane', 'city', 'self_catering', 'no', 'yes', 'low', 'yen', 'yes').
+trip(55, 'France', 'short', 'medium', 'high', 'bus', 'city', 'all_inclusive', 'yes', 'no', 'high', 'euro', 'yes').
+trip(56, 'France', 'very_long', 'high', 'good', 'train', 'city', 'included', 'yes', 'no', 'moderate', 'euro', 'yes').
+trip(57, 'Spain', 'medium', 'low', 'satisfactory', 'bus', 'city', 'all_inclusive', 'yes', 'no', 'high', 'euro', 'no').
+trip(58, 'Italy', 'long', 'very_low', 'satisfactory', 'ferry', 'sea', 'all_inclusive', 'yes', 'yes', 'high', 'euro', 'no').
+trip(59, 'Italy', 'short', 'low', 'good', 'ferry', 'city', 'self_catering', 'no', 'no', 'moderate', 'euro', 'no').
+trip(60, 'Poland', 'medium', 'high', 'luxurious', 'ferry', 'sea', 'included', 'yes', 'no', 'moderate', 'pln', 'yes').
+trip(61, 'Poland', 'short', 'low', 'high', 'bus', 'sea', 'self_catering', 'no', 'no', 'moderate', 'pln', 'yes').
+trip(62, 'Italy', 'very_long', 'medium', 'high', 'train', 'sea', 'self_catering', 'no', 'no', 'moderate', 'euro', 'yes').
+trip(63, 'Poland', 'very_long', 'high', 'high', 'train', 'sea', 'self_catering', 'no', 'yes', 'moderate', 'pln', 'yes').
+trip(64, 'France', 'very_short', 'low', 'luxurious', 'train', 'city', 'all_inclusive', 'no', 'yes', 'moderate', 'euro', 'no').
+trip(65, 'Italy', 'medium', 'low', 'good', 'plane', 'sea', 'all_inclusive', 'no', 'yes', 'moderate', 'euro', 'no').
+trip(66, 'Spain', 'long', 'high', 'luxurious', 'bus', 'city', 'all_inclusive', 'no', 'yes', 'high', 'euro', 'no').
+trip(67, 'Poland', 'very_long', 'very_high', 'luxurious', 'ferry', 'mountains', 'self_catering', 'yes', 'yes', 'very_high', 'pln', 'yes').
+trip(68, 'Italy', 'very_long', 'high', 'good', 'ferry', 'sea', 'self_catering', 'yes', 'no', 'moderate', 'euro', 'yes').
+trip(69, 'Japan', 'short', 'medium', 'high', 'train', 'sea', 'self_catering', 'yes', 'yes', 'moderate', 'yen', 'yes').
+trip(70, 'Spain', 'medium', 'low', 'satisfactory', 'plane', 'sea', 'included', 'yes', 'yes', 'moderate', 'euro', 'no').
+trip(71, 'Spain', 'short', 'very_low', 'satisfactory', 'ferry', 'city', 'all_inclusive', 'yes', 'no', 'high', 'euro', 'yes').
+trip(72, 'Poland', 'very_long', 'very_high', 'good', 'ferry', 'sea', 'self_catering', 'no', 'yes', 'very_high', 'pln', 'no').
+trip(73, 'Italy', 'short', 'low', 'good', 'plane', 'mountains', 'all_inclusive', 'no', 'yes', 'low', 'euro', 'yes').
+trip(74, 'France', 'very_long', 'very_high', 'high', 'ferry', 'city', 'self_catering', 'yes', 'yes', 'high', 'euro', 'no').
+trip(75, 'Poland', 'very_long', 'low', 'satisfactory', 'bus', 'mountains', 'included', 'yes', 'no', 'high', 'pln', 'no').
+trip(76, 'Japan', 'short', 'very_low', 'high', 'plane', 'sea', 'all_inclusive', 'yes', 'no', 'high', 'yen', 'no').
+trip(77, 'France', 'short', 'low', 'high', 'plane', 'city', 'included', 'yes', 'no', 'very_high', 'euro', 'yes').
+trip(78, 'France', 'short', 'medium', 'luxurious', 'ferry', 'mountains', 'self_catering', 'no', 'yes', 'moderate', 'euro', 'no').
+trip(79, 'Poland', 'very_long', 'very_high', 'luxurious', 'ferry', 'sea', 'all_inclusive', 'no', 'no', 'moderate', 'pln', 'yes').
+trip(80, 'Japan', 'long', 'medium', 'good', 'ferry', 'mountains', 'self_catering', 'no', 'no', 'low', 'yen', 'no').
+trip(81, 'Poland', 'medium', 'low', 'satisfactory', 'train', 'mountains', 'self_catering', 'no', 'no', 'high', 'pln', 'yes').
+trip(82, 'Poland', 'short', 'low', 'good', 'ferry', 'sea', 'included', 'yes', 'no', 'low', 'pln', 'yes').
+trip(83, 'Japan', 'medium', 'medium', 'luxurious', 'bus', 'mountains', 'self_catering', 'no', 'yes', 'high', 'yen', 'yes').
+trip(84, 'Poland', 'long', 'low', 'good', 'plane', 'mountains', 'self_catering', 'yes', 'yes', 'low', 'pln', 'no').
+trip(85, 'Japan', 'medium', 'medium', 'good', 'train', 'mountains', 'self_catering', 'yes', 'no', 'low', 'yen', 'yes').
+trip(86, 'France', 'very_long', 'medium', 'good', 'bus', 'sea', 'self_catering', 'no', 'yes', 'low', 'euro', 'no').
+trip(87, 'Spain', 'medium', 'low', 'good', 'plane', 'sea', 'all_inclusive', 'yes', 'yes', 'low', 'euro', 'no').
+trip(88, 'Italy', 'very_long', 'very_high', 'high', 'plane', 'city', 'all_inclusive', 'no', 'yes', 'moderate', 'euro', 'yes').
+trip(89, 'France', 'very_long', 'high', 'good', 'bus', 'mountains', 'all_inclusive', 'yes', 'yes', 'very_high', 'euro', 'no').
+trip(90, 'Japan', 'medium', 'high', 'high', 'bus', 'mountains', 'included', 'yes', 'yes', 'very_high', 'yen', 'yes').
+trip(91, 'France', 'medium', 'low', 'satisfactory', 'plane', 'city', 'self_catering', 'yes', 'no', 'moderate', 'euro', 'yes').
+trip(92, 'Italy', 'long', 'medium', 'satisfactory', 'ferry', 'city', 'all_inclusive', 'no', 'yes', 'low', 'euro', 'yes').
+trip(93, 'France', 'medium', 'very_high', 'luxurious', 'train', 'sea', 'all_inclusive', 'yes', 'no', 'low', 'euro', 'no').
+trip(94, 'Japan', 'medium', 'low', 'good', 'bus', 'sea', 'included', 'yes', 'no', 'high', 'yen', 'yes').
+trip(95, 'Japan', 'long', 'very_high', 'luxurious', 'ferry', 'sea', 'self_catering', 'no', 'no', 'moderate', 'yen', 'no').
+trip(96, 'Spain', 'very_long', 'high', 'good', 'ferry', 'city', 'included', 'yes', 'yes', 'very_high', 'euro', 'yes').
+trip(97, 'France', 'short', 'medium', 'high', 'train', 'city', 'all_inclusive', 'no', 'no', 'low', 'euro', 'no').
+trip(98, 'France', 'short', 'medium', 'high', 'ferry', 'mountains', 'self_catering', 'no', 'no', 'very_high', 'euro', 'yes').
+trip(99, 'Poland', 'short', 'very_low', 'good', 'plane', 'sea', 'all_inclusive', 'yes', 'no', 'very_high', 'pln', 'no').
+trip(100, 'Italy', 'long', 'medium', 'luxurious', 'train', 'mountains', 'self_catering', 'yes', 'no', 'moderate', 'euro', 'yes').
