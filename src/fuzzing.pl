@@ -8,7 +8,7 @@ priceFuzzy('średnia', PriceNum) :- PriceNum < 6000, !.
 priceFuzzy('wysoka', PriceNum) :- PriceNum < 10000, !.
 priceFuzzy('bardzo wysoka', _PriceNum) :- !.
 
-% Fuzzy logic for price based on price per day
+% Zakomentowane do rozwazenia:
 % priceFuzzy(veryLow, PriceNum, Days) :-
 %     Days > 0,
 %     PricePerDay is PriceNum / Days,
