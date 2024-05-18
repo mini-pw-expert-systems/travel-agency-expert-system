@@ -32,7 +32,7 @@ durationFuzzy('medium', Days) :- Days < 14, !.
 durationFuzzy('long', _Days) :- !.
 
 % trip(Country, durationFuzzy, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment).
-tripFuzz(Id, Country, DurationFuzz, PriceFuzz, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment):- 
-    trip(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment),
+trip(Id, Country, DurationFuzz, PriceFuzz, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment):- 
+    tripDB(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment),
     priceFuzzy(PriceFuzz, Price), 
     durationFuzzy(DurationFuzz, Duration).

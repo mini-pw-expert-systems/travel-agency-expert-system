@@ -1,5 +1,5 @@
-:- consult('../data/trips_database_fuzzy.pl').
-
+% :- consult('../data/trips_database_fuzzy.pl').
+:- consult('fuzzing.pl').
 % Example trip
 % trip(1, 'Polska', 'bardzo krótki', 'bardzo niska', 'zadowalający', 'prom', 'góry', 'we własnym zakresie', 'tak', 'nie', 'umiarkowany', 'pln', 'tak').
 get_attr_value(ID, 1, A1) :- trip(ID, _, A1, _, _, _, _, _, _, _, _, _, _).
@@ -47,6 +47,7 @@ diff_attr_dec(ID1, ID2, AttrIndex, Conditions) :-
     Dec1 \= Dec2,
     satisfies_conditions(ID1, Conditions),
     satisfies_conditions(ID2, Conditions).
+
 
 % Rule to count the number of pairs that differ in the specified attribute and dec while satisfying additional conditions.
 count_diff_attr_dec(AttrIndex, Conditions, PairsCount) :-
