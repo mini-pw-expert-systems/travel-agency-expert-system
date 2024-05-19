@@ -6,23 +6,23 @@ import numpy as np
 
 class TripGenerator:
     BASE_PATH = "../data/"
-    
-    DURATION_RANGE = (2,15)
-    ACCOMODATION_STANDARD = ['zadowalający', 'dobry', 'wysoki', 'luksusowy']
+        
+    DURATION_RANGE = (2, 15)
+    ACCOMODATION_STANDARD = ['satisfactory', 'good', 'high', 'luxurious']
     PRICE_RANGE = (100, 400)
-    TRANSPORTATION = ['samolot', 'prom', 'autobus', 'pociąg']
-    BOARD_BASIS = ['we własnym zakresie', 'w cenie', 'all inclusive']
-    CHILDREN_FRIENDLY = ['tak', 'nie']
-    PETS_FRIENDLY = ['tak', 'nie']
-    PREPAYMENT_NEEDED = ['tak', 'nie']
-    TOURIST_DENSITY = ['niski', 'umiarkowany', 'wysoki', 'bardzo wysoki']
-    
+    TRANSPORTATION = ['plane', 'ferry', 'bus', 'train']
+    BOARD_BASIS = ['self_catering', 'included', 'all_inclusive']
+    CHILDREN_FRIENDLY = ['yes', 'no']
+    PETS_FRIENDLY = ['yes', 'no']
+    PREPAYMENT_NEEDED = ['yes', 'no']
+    TOURIST_DENSITY = ['low', 'moderate', 'high', 'very_high']
+
     COUNTRIES = {
-    'Francja': {'trip_types': ['góry', 'morze', 'miasto'], 'currency': 'euro'},
-    'Włochy': {'trip_types': ['góry', 'morze', 'miasto'], 'currency': 'euro'},
-    'Polska': {'trip_types': ['góry', 'morze'], 'currency': 'pln'},
-    'Hiszpania': {'trip_types': ['morze', 'miasto'], 'currency': 'euro'},
-    'Japonia': {'trip_types': ['góry', 'morze', 'miasto'], 'currency': 'yen'},
+        'France': {'trip_types': ['mountains', 'sea', 'city'], 'currency': 'euro'},
+        'Italy': {'trip_types': ['mountains', 'sea', 'city'], 'currency': 'euro'},
+        'Poland': {'trip_types': ['mountains', 'sea'], 'currency': 'pln'},
+        'Spain': {'trip_types': ['sea', 'city'], 'currency': 'euro'},
+        'Japan': {'trip_types': ['mountains', 'sea', 'city'], 'currency': 'yen'},
     }
     
     def _calculate_price(self, standard, duration):
@@ -35,27 +35,27 @@ class TripGenerator:
 
     def map_price_to_fuzzy(self, price: int) -> str:
         if price < 1500:
-            return "bardzo niska"
+            return "very_low"
         elif price < 3000:
-            return "niska"
+            return "low"
         elif price < 6000:
-            return "średnia"
+            return "medium"
         elif price < 10000:
-            return "wysoka"
+            return "high"
         else:
-            return "bardzo wysoka"
+            return "very_high"
     
     def map_duration_to_fuzzy(self, duration: int) -> str:
         if duration < 3:
-            return "bardzo krótki"
+            return "very_short"
         elif duration < 6:
-            return "krótki"
+            return "short"
         elif duration < 9:
-            return "średni"
+            return "medium"
         elif duration < 12:
-            return "długi"
+            return "long"
         else:
-            return "bardzo długi"
+            return "very_long"
 
     def generate_trip(self, fuzzy: bool, id: int):
         chosen_country = random.choice(list(self.COUNTRIES.keys()))
@@ -105,12 +105,13 @@ class TripGenerator:
             
     def _create_prolog_database(self, trips, fuzzy):
         filename = 'trips_database_fuzzy.pl' if fuzzy else 'trips_database.pl'
+        fact_name = 'trip' if fuzzy else 'tripDB'
         with open(self.BASE_PATH + filename, 'w', encoding='utf-8') as f:
             f.write('% Facts representing trips available trips. \n')
             for trip in trips:
                 duration = f"'{trip['duration']}'" if fuzzy else f"{trip['duration']}"
                 price = f"'{trip['price']}'" if fuzzy else f"{trip['price']}"
-                f.write(f"trip({trip['Id']}, '{trip['chosen_country']}', {duration}, {price}, '{trip['accomodation_standard']}', '{trip['transportation']}', '{trip['type']}', '{trip['board_basis']}', '{trip['children_friendly']}', '{trip['pets_friendly']}', '{trip['tourist_density']}', '{trip['currency']}', '{trip['prepayment_needed']}').\n")
+                f.write(f"{fact_name}({trip['Id']}, '{trip['chosen_country']}', {duration}, {price}, '{trip['accomodation_standard']}', '{trip['transportation']}', '{trip['type']}', '{trip['board_basis']}', '{trip['children_friendly']}', '{trip['pets_friendly']}', '{trip['tourist_density']}', '{trip['currency']}', '{trip['prepayment_needed']}').\n")
     
 
 def main():
