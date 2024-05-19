@@ -108,6 +108,7 @@ class TripGenerator:
         fact_name = 'trip' if fuzzy else 'tripDB'
         with open(self.BASE_PATH + filename, 'w', encoding='utf-8') as f:
             f.write('% Facts representing trips available trips. \n')
+            f.write(':- dynamic tripDB/13. \n')
             for trip in trips:
                 duration = f"'{trip['duration']}'" if fuzzy else f"{trip['duration']}"
                 price = f"'{trip['price']}'" if fuzzy else f"{trip['price']}"
