@@ -1,6 +1,6 @@
 :- consult("../../data/trips_database.pl").
 
-main :-
+expert_ui :-
     format('------------------~n'),
     format('Travel agency~n'),
     format('------------------~n'),
@@ -34,18 +34,18 @@ search_action(_, out_of_range) :-
 out_of_range.
 
 check_exit_action_action(exit_action) :- !.
-check_exit_action_action(_) :- main.
+check_exit_action_action(_) :- expert_ui.
 print_error :-
     format('Error~n').
 
 print_all_trips :-
-    trip(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment),
+    tripDB(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment),
     print_location(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment),
     fail.
 print_all_trips :- !.
 
 print_location(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment) :-
-    format('~n| ~w~t~5+ | ~w~t~12+ | ~w~t~5+ | ~w~t~8+ | ~w~t~18+ | ~w~t~10+ | ~w~t~16+ | ~w~t~26+ | ~w~t~3+ | ~w~t~3+ | ~w~t~18+ | ~w~t~7+ | ~w~t~3+ | ~n', [Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment]),
+    format('~n| ~w~t~5+ | ~w~t~12+ | ~w~t~5+ | ~w~t~8+ | ~w~t~18+ | ~w~t~10+ | ~w~t~16+ | ~w~t~26+ | ~w~t~6+ | ~w~t~6+ | ~w~t~18+ | ~w~t~7+ | ~w~t~6+ | ~n', [Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment]),
     fail.
 
 read_trip(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment) :-
@@ -61,29 +61,29 @@ read_trip(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr
     read_field('Pet-friendly', Pets),
     read_field('Tourists shops density', Tourists),
     read_field('Currency', Currency),
-    read_field('Payment', Payment).
+    read_field('Pre-payment', Payment).
 
 read_field(Name, Value) :-
     format('~s', [Name]), read(Value).
 
 add_trip :-
     read_trip(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment), nl,
-    not( trip(Id, _, _, _, _, _, _, _, _, _, _, _, _)),
-    assert(trip(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment)),
+    not( tripDB(Id, _, _, _, _, _, _, _, _, _, _, _, _)),
+    assert(tripDB(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment)),
     format('#Location ~p added~n', [Id]).
 add_trip :- print_error.
 
 edit_trip :-
  read_trip(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment), nl,  
-    retract(trip(Id, _, _, _, _, _, _, _, _, _, _, _, _)),
-    assert(trip(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment)),
+    retract(tripDB(Id, _, _, _, _, _, _, _, _, _, _, _, _)),
+    assert(tripDB(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment)),
     format('Location ~p edited~n', [Id]).
 edit_trip :- print_error.
 
 remove_trip :-
     read_field('Location Id', Id), nl,
-   trip(Id, _, _, _, _, _, _, _, _, _, _, _, _),
-    retract(trip(Id, _, _, _, _, _, _, _, _, _, _, _, _)),
-    retractall(trip(Id, _, _, _, _, _, _, _, _, _, _, _, _)),
+   tripDB(Id, _, _, _, _, _, _, _, _, _, _, _, _),
+    retract(tripDB(Id, _, _, _, _, _, _, _, _, _, _, _, _)),
+    retractall(tripDB(Id, _, _, _, _, _, _, _, _, _, _, _, _)),
     format('Location ~p removed~n', [Id]).
 remove_trip :- print_error.
