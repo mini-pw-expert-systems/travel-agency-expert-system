@@ -123,27 +123,30 @@ find_matching_trip_loop(Attributes, Conditions, MatchingTripID) :-
     find_best_attribute(Attributes, Conditions, MaxAttribute),
     select(MaxAttribute, Attributes, RemainingAttributes),
     find_distinct_values(MaxAttribute, Conditions, Values),
-    attribute_name(MaxAttribute, AttributeName),
-    (   MaxAttribute = 1 -> format('Enter duration in days (e.g., 5): ')
-    ;   MaxAttribute = 2 -> format('Enter price in PLN (e.g., 2000): ')
-    ;   format('Select the ~w (possible values: ~w, input as a list [value1, value2, ...] or a single value): ', [AttributeName, Values])
-    ),
-    read(UserInput),
-    (   MaxAttribute = 1 -> (number(UserInput) -> transform_duration(UserInput, TransformedValue) ; TransformedValue = UserInput),
-                            NewCondition = (MaxAttribute, [TransformedValue])
-    ;   MaxAttribute = 2 -> (number(UserInput) -> transform_price(UserInput, TransformedValue) ; TransformedValue = UserInput),
-                            NewCondition = (MaxAttribute, [TransformedValue])
-    ;   is_list(UserInput) -> NewCondition = (MaxAttribute, UserInput)
-    ;   NewCondition = (MaxAttribute, [UserInput])
-    ),
-    append(Conditions, [NewCondition], NewConditions),
-    
-    % Check for collisions and inconsistencies
-    find_distinct_countries(NewConditions, Countries),
-    (   length(Countries, 1) ->
-        Countries = [Country],
-        MatchingTripID = Country
-    ;   find_matching_trip_loop(RemainingAttributes, NewConditions, MatchingTripID)
+    (   length(Values, 1) ->
+        find_entries(Conditions, [(_, MatchingTripID, _, _, _, _, _, _, _, _, _, _, _)|_])
+    ;   attribute_name(MaxAttribute, AttributeName),
+        (   MaxAttribute = 1 -> format('Enter duration in days (e.g., 5): ')
+        ;   MaxAttribute = 2 -> format('Enter price in PLN (e.g., 2000): ')
+        ;   format('Select the ~w (possible values: ~w, input as a list [value1, value2, ...] or a single value): ', [AttributeName, Values])
+        ),
+        read(UserInput),
+        (   MaxAttribute = 1 -> (number(UserInput) -> transform_duration(UserInput, TransformedValue) ; TransformedValue = UserInput),
+                                NewCondition = (MaxAttribute, [TransformedValue])
+        ;   MaxAttribute = 2 -> (number(UserInput) -> transform_price(UserInput, TransformedValue) ; TransformedValue = UserInput),
+                                NewCondition = (MaxAttribute, [TransformedValue])
+        ;   is_list(UserInput) -> NewCondition = (MaxAttribute, UserInput)
+        ;   NewCondition = (MaxAttribute, [UserInput])
+        ),
+        append(Conditions, [NewCondition], NewConditions),
+        
+        % Check for collisions and inconsistencies
+        find_distinct_countries(NewConditions, Countries),
+        (   length(Countries, 1) ->
+            Countries = [Country],
+            MatchingTripID = Country
+        ;   find_matching_trip_loop(RemainingAttributes, NewConditions, MatchingTripID)
+        )
     ).
 
 % Start the process
