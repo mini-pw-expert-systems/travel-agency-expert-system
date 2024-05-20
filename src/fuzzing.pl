@@ -1,38 +1,41 @@
-:- consult('../data/trips_database.pl'). 
+:- consult('../data/trips_database.pl').
 
-% trip(Country, durationFuzzy, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment).
+% Triangular membership function
+triangular(X, A, B, C, Degree) :-
+    (X < A -> Degree is 0;
+     X >= A, X < B -> Degree is (X - A) / (B - A);
+     X >= B, X < C -> Degree is (C - X) / (C - B);
+     X >= C -> Degree is 0).
 
-priceFuzzy('very_low', PriceNum) :- PriceNum < 1500, !.
-priceFuzzy('low', PriceNum) :- PriceNum < 3000, !.
-priceFuzzy('medium', PriceNum) :- PriceNum < 6000, !.
-priceFuzzy('high', PriceNum) :- PriceNum < 10000, !.
-priceFuzzy('very_high', _PriceNum) :- !.
+% Fuzzy categories for price
+priceFuzzy('very_low', PriceNum, Degree) :- 
+    triangular(PriceNum, 0, 0, 1500, Degree).
+priceFuzzy('low', PriceNum, Degree) :- 
+    triangular(PriceNum, 1000, 1500, 3000, Degree).
+priceFuzzy('medium', PriceNum, Degree) :- 
+    triangular(PriceNum, 2000, 4000, 6000, Degree).
+priceFuzzy('high', PriceNum, Degree) :- 
+    triangular(PriceNum, 5000, 7500, 10000, Degree).
+priceFuzzy('very_high', PriceNum, Degree) :- 
+    triangular(PriceNum, 8000, 10000, 100000, Degree).
 
-% Zakomentowane do rozwazenia:
-% priceFuzzy(veryLow, PriceNum, Days) :-
-%     Days > 0,
-%     PricePerDay is PriceNum / Days,
-%     PricePerDay < 200, !.
-% priceFuzzy(low, PriceNum, Days) :-
-%     Days > 0,
-%     PricePerDay is PriceNum / Days,
-%     PricePerDay < 500, !.
-% priceFuzzy(medium, PriceNum, Days) :-
-%     Days > 0,
-%     PricePerDay is PriceNum / Days,
-%     PricePerDay < 1000, !.
-% priceFuzzy(high, PriceNum, Days) :-
-%     Days > 0,
-%     PricePerDay is PriceNum / Days,
-%     PricePerDay < 2000, !.
-% priceFuzzy(veryHigh, _PriceNum, _Days) :- !.
+% Fuzzy categories for duration
+durationFuzzy('short', Days, Degree) :- 
+    triangular(Days, 0, 0, 7, Degree).
+durationFuzzy('medium', Days, Degree) :- 
+    triangular(Days, 5, 7, 14, Degree).
+durationFuzzy('long', Days, Degree) :- 
+    triangular(Days, 10, 14, 10000, Degree).
 
-durationFuzzy('short', Days) :- Days < 7, !.
-durationFuzzy('medium', Days) :- Days < 14, !.
-durationFuzzy('long', _Days) :- !.
-
-% trip(Country, durationFuzzy, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment).
+% Trip predicate utilizing fuzzy categories
 trip(Id, Country, DurationFuzz, PriceFuzz, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment):- 
     tripDB(Id, Country, Duration, Price, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment),
-    priceFuzzy(PriceFuzz, Price), 
-    durationFuzzy(DurationFuzz, Duration).
+    priceFuzzy(PriceLabel, Price, PriceDegree),
+    durationFuzzy(DurationLabel, Duration, DurationDegree),
+    DurationFuzz = [DurationLabel, DurationDegree],
+    PriceFuzz = [PriceLabel, PriceDegree].
+
+% Example usage to see the transformations
+example_usage :-
+    trip(1, Country, DurationFuzz, PriceFuzz, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment),
+    writeln([Country, DurationFuzz, PriceFuzz, AccStd, Transport, Type, BoardB, ChildFr, Pets, Tourists, Currency, Payment]).
