@@ -32,18 +32,10 @@ attribute_name(11, 'prepayment needed').
 attributes([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]).
 
 transform_duration(Number, Category) :-
-    (   Number < 7 -> Category = 'short'
-    ;   Number < 14 -> Category = 'medium'
-    ;   Category = 'long'
-    ).
+    evaluate_duration(Number, Category).
 
 transform_price(Number, Category) :-
-    (   Number < 1500 -> Category = 'very_low'
-    ;   Number < 3000 -> Category = 'low'
-    ;   Number < 6000 -> Category = 'medium'
-    ;   Number < 10000 -> Category = 'high'
-    ;   Category = 'very_high'
-    ).
+    evaluate_price(Number, Category).
 
 satisfies_conditions(_, []).
 satisfies_conditions(ID, [(AttrIndex, Values)|Rest]) :-
